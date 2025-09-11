@@ -4,20 +4,15 @@ import Activity from './Activity'
 import Information from './Information'
 import Chart from './Chart'
 
-const MainBody = () => {
+const MainBody = ({data}) => {
   return (
     <div className='flex mt-[10px] gap-15'>
-    <div>
-        <Menu/>
-    </div>
-    <div className='flex flex-col'>
-        <div><Activity/></div>
-        <div><Chart/></div>
-    </div>
-    <div>
-        <Information/>
-    </div>
-      
+      <Menu />
+      <div className='flex flex-col'>
+        <Activity />
+        <Chart />
+      </div>
+      <Information data={data} />
     </div>
   )
 }

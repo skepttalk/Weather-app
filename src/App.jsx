@@ -8,6 +8,7 @@ import MainPage from './Pages/MainPage'
 
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [count, setCount] = useState(0)
 
   return (
@@ -15,7 +16,7 @@ function App() {
     <Layout>
          <MainPage />
    </Layout>
-    </div>
+     </div>
     
   )
 }

@@ -15,27 +15,27 @@ const Activity = () => {
             <div className=' w-auto h-auto  rounded-[10px] p-7  flex justify-between'>
                 <figure className='w-auto h-auto top-[86px] left-[50px] rounded-[10px] p-3  ' >
                     <img src={Rectangle1} alt="Rectangle1" />
-                    <figure caption className='font-inter font-medium  text-[12px] text-[#2B261D]'>2km away</figure>
+                    <figure  className='font-inter font-medium  text-[12px] text-[#2B261D]'>2km away</figure>
 
 
                 </figure>
 
                 <figure className='w-auto h-auto top-[86px] left-[50px] rounded-[10px] p-3  ' >
                     <img src={Rectangle2} alt="Rectangle2" />
-                    <figure caption className='font-inter font-medium  text-[12px] text-[#2B261D]'>1.5km away</figure>
+                    <figure  className='font-inter font-medium  text-[12px] text-[#2B261D]'>1.5km away</figure>
 
                 </figure>
 
                 <figure className='w-auto h-auto top-[86px] left-[50px] rounded-[10px] p-3  ' >
                     <img src={Rectangle3} alt="Rectangle3" />
-                    <figure caption className='font-inter font-medium  text-[12px] text-[#2B261D]'>3km away</figure>
+                    <figure  className='font-inter font-medium  text-[12px] text-[#2B261D]'>3km away</figure>
 
 
                 </figure>
 
                 <figure className='w-auto h-auto top-[86px] left-[50px] rounded-[10px] p-3  ' >
                     <img src={Rectangle4} alt="Rectangle4" />
-                    <figure caption className='font-inter font-medium  text-[12px] text-[#2B261D]'>500m away</figure>
+                    <figure  className='font-inter font-medium  text-[12px] text-[#2B261D]'>500m away</figure>
 
 
                 </figure>

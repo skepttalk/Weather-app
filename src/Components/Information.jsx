@@ -10,12 +10,13 @@ import Drop from "../assets/images/Drop.png"
 import UvI from "../assets/images/UvI.png"
 
 
-const Information = () => {
+const Information = ({data}) => {
+  console.log(data)
   return (
     <div className='bg-[#DEAB4D] h-[500px] w-[300px] rounded-[40px] p-6'>
       <div className='flex flex-row justify-between text-[12px] font-inter font-medium text-[#FFFFFF] mb-4'>
         <div className='flex flex-col items-center'>
-          <img src={CloudIcon} alt="fri" className='w-[20px] h-[20px] mb-1' />
+          <img src={CloudIcon} alt="fri" className='w-[20px] h-[20px] mb-1  opacity-100' />
           <h1>FRI</h1>
         </div>
         <div className='flex flex-col items-center'>
@@ -23,7 +24,7 @@ const Information = () => {
           <h1>SAT</h1>
         </div>
         <div className='flex flex-col items-center font-bold'>
-          <img src={M3} alt="sun" className='w-[25px] h-[25px] mb-1' />
+          <img src={M3} alt="sun" className='w-[25px] h-[23px] mb-1' />
           <h1>SUN</h1>
         </div>
         <div className='flex flex-col items-center'>
@@ -31,7 +32,7 @@ const Information = () => {
           <h1>MON</h1>
         </div>
         <div className='flex flex-col items-center'>
-          <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1' />
+          <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1 opacity-100' />
           <h1>TUES</h1>
         </div>
       </div>
@@ -49,7 +50,7 @@ const Information = () => {
           <img src={TM} alt="thermometer" className='w-[20px] h-[20px]' />
           <div>
             <h1 className='font-inter font-medium text-[12px] text-[#FFFFFF]'>Real Feel</h1>
-            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>30°</h1>
+            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>{data.feels}°</h1>
           </div>
         </div>
 
@@ -57,7 +58,7 @@ const Information = () => {
           <img src={Wind} alt="wind" className='w-[20px] h-[20px]' />
           <div>
             <h1 className='font-inter font-medium text-[12px] text-[#FFFFFF]'>Wind</h1>
-            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>0.8 km/hr</h1>
+            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>{data.wind} km/hr</h1>
           </div>
         </div>
 
@@ -65,7 +66,7 @@ const Information = () => {
           <img src={Drop} alt="rain" className='w-[20px] h-[20px]' />
           <div>
             <h1 className='font-inter font-medium text-[12px] text-[#FFFFFF]'>Chance of Rain</h1>
-            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>2%</h1>
+            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>{data.prec}%</h1>
           </div>
         </div>
 
@@ -73,7 +74,7 @@ const Information = () => {
           <img src={UvI} alt="uv" className='w-[20px] h-[20px]' />
           <div>
             <h1 className='font-inter font-medium text-[12px] text-[#FFFFFF]'>UV Index</h1>
-            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>4</h1>
+            <h1 className='font-inter font-medium text-[16px] text-[#FFFFFF]'>{data.uv}</h1>
           </div>
         </div>
       </div>
