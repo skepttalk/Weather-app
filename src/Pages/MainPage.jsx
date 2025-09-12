@@ -3,17 +3,17 @@ import Header from '../Components/Header'
 import MainBody from '../Components/MainBody'
 
 const MainPage = () => {
-  
-const AccessKey = import.meta.env.WEATHER_API_KEY
-console.log(AccessKey,"AccessKey")
+
+  const AccessKey = import.meta.env.WEATHER_API_KEY
+  console.log(AccessKey,"AccessKey")
 
 
-  const[headerData,setHeaderData] = useState({});
-  const[MainBodyData,setMainBodyData] = useState({})
+const[headerData,setHeaderData] = useState({});
+const[MainBodyData,setMainBodyData] = useState({})
 const [WeatherData,setWeatherData] = useState({})
 
 useEffect(()=>{
-  fetch(`http://api.weatherstack.com/current?access_key=${AccessKey}&query=india, Rajasthan, Udaipur`)
+  fetch(`http://api.weatherstack.com/current?access_key=${AccessKey}9&query=india, Rajasthan, Udaipur`)
     .then((res) => res.json())
     .then((data) => {
       setWeatherData(data);
