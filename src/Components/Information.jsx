@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState ,useEffect } from 'react'
 import SunIcon from "../assets/images/SunIcon.png"
 import CloudIcon from "../assets/images/CloudIcon.png"
 import M3 from "../assets/images/M3.png"
@@ -11,33 +11,69 @@ import UvI from "../assets/images/UvI.png"
 import Arrow from "../assets/images/Arrow-Left.png"
 import ArrowR from "../assets/images/Arrow-Right.png"
 
+const weekday = ["Sun", "Mon", "Tue", "Wed", "Thus", "Fri", "Sat"];
+const d1 = new Date();
+
+
+
 
 const Information = ({data}) => {
-console.log(data)
 
 
-let CurrentDay = 5;
-let Day_Arr = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-let print_Day_Arr = [];
+ const [print_day, setPrint_day] = useState([]);
+  const [currentDay, setCurrentDay] = useState(d1.getDay());
 
-for (let i = -2; i <= 2; i++) {
-  let CurrentDayToday = CurrentDay + i;
-  let Day_Arr_length = Day_Arr.length;
-  let day = 0;
+  useEffect(() => {
 
-  if (CurrentDayToday < 0) {
-    day = Day_Arr_length + CurrentDayToday;
-  } else {
-    day = CurrentDayToday % Day_Arr_length;
+
+    
+  
+    calculateWeekDay(currentDay);
+
+  }, [print_day, currentDay]);
+
+  function calculateWeekDay(currentDay) {
+    let print_day_duplicate = [];
+    for (let i = -2; i <= 2; i++) {
+      let currentday_i = currentDay + i;
+     
+         if (currentday_i < 0) {
+        print_day_duplicate.push(weekday.length + currentday_i);
+      } else {
+        print_day_duplicate.push(currentday_i % weekday.length);
+        currentDay=currentDay+1%weekday.length
+      }
+
+    }
+    setPrint_day(print_day_duplicate);
   }
 
-  print_Day_Arr.unshift(Day_Arr[day]); 
-}
-console.log(print_Day_Arr);
+  function leftClick() {
+    let currentDayDuplicate = currentDay - 1;
+    if (currentDay < 0) {
+      currentDayDuplicate = weekday.length + currentDay;
+    }
+    setCurrentDay(currentDayDuplicate);
+
+    calculateWeekDay(currentDayDuplicate);
+  }
+
+
+  function rightClick() {
+    let currentDayDuplicate = currentDay + 1 % weekday.length;
+    setCurrentDay(currentDayDuplicate);
+    calculateWeekDay(currentDay);
+
+  }
+
+
+
+
+
   return (
     <div className='bg-[#DEAB4D] h-[500px] w-[300px] rounded-[40px] p-6'>
       <div className='flex flex-row justify-between text-[12px] font-inter font-medium text-[#FFFFFF] mb-4'>
-        <img src={Arrow } alt="Arrow" className="cursor-pointer"  />
+        <img src={Arrow } alt="Arrow" className="cursor-pointer w-[20px] h-[24px]" onClick={leftClick} />
         
         <div className='flex flex-col items-center'>
             <h1>FRI </h1>
@@ -59,7 +95,7 @@ console.log(print_Day_Arr);
           <h1>TUES</h1>
           <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1 opacity-100' />
         </div>
-         <img src={ArrowR} alt="ArrowR" />
+         <img src={ArrowR} alt="ArrowR" className="cursor-pointer w-[20px] h-[24px]" onClick={rightClick} />
       </div>
       
 

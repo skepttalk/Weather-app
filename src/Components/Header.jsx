@@ -8,23 +8,7 @@ const Header = ({data}) => {
   const dateObj = new Date(data.Time);
  const options = { weekday: "long", day: "numeric", month: "short", year: "numeric", };
  const formattedDate = dateObj.toLocaleDateString("en-US", options);
-  //const [WeatherData, setWeatherData] = useState({});
-  // useEffect(() => {
-    
-  //   fetch("http://api.weatherstack.com/current?access_key=a4c7c96e6d7466e2e8cc19604947a98c&query=india")
-  //     .then((res) => res.json())
-  //     .then((data) =>{
-  //     // setWeatherData(data);
-  //   })
-  //   .catch((err) => console.log(err));
-  // },[]);
 
-  
-  
-  //  const data = JSON.parse(localStorage.getItem("weatherData"));
-  // console.log(data, "weatherData");
-  // const parsedData = JSON.parse(localStorage.getItem("weatherData"));
-  // console.log(parsedData,"parsedData");
 console.log(data)
 
 
