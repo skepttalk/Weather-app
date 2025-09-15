@@ -17,17 +17,16 @@ const d1 = new Date();
 
 
 
-const Information = ({data}) => {
 
-
- const [print_day, setPrint_day] = useState([]);
+const Information = ({ data, day }) => {
+  const [print_day, setPrint_day] = useState([]);
   const [currentDay, setCurrentDay] = useState(d1.getDay());
 
   useEffect(() => {
 
+    console.log(currentDay, "current");
+    console.log(weekday[currentDay]);
 
-    
-  
     calculateWeekDay(currentDay);
 
   }, [print_day, currentDay]);
@@ -36,12 +35,11 @@ const Information = ({data}) => {
     let print_day_duplicate = [];
     for (let i = -2; i <= 2; i++) {
       let currentday_i = currentDay + i;
-     
-         if (currentday_i < 0) {
+      if (currentday_i < 0) {
         print_day_duplicate.push(weekday.length + currentday_i);
       } else {
         print_day_duplicate.push(currentday_i % weekday.length);
-        currentDay=currentDay+1%weekday.length
+
       }
 
     }
@@ -63,11 +61,7 @@ const Information = ({data}) => {
     let currentDayDuplicate = currentDay + 1 % weekday.length;
     setCurrentDay(currentDayDuplicate);
     calculateWeekDay(currentDay);
-
   }
-
-
-
 
 
   return (
@@ -75,26 +69,17 @@ const Information = ({data}) => {
       <div className='flex flex-row justify-between text-[12px] font-inter font-medium text-[#FFFFFF] mb-4'>
         <img src={Arrow } alt="Arrow" className="cursor-pointer w-[20px] h-[24px]" onClick={leftClick} />
         
-        <div className='flex flex-col items-center'>
-            <h1>FRI </h1>
-          <img src={CloudIcon} alt="fri" className='w-[20px] h-[20px] mb-1  opacity-100' />
-        </div>
-        <div className='flex flex-col items-center'>
-          <h1>SAT</h1>
-          <img src={SunIcon} alt="sat" className='w-[20px] h-[20px] mb-1' />
-        </div>
-        <div className='flex flex-col items-center font-bold'>
-          <h1>SUN</h1>
-          <img src={M3} alt="sun" className='w-[25px] h-[23px] mb-1' />
-        </div>
-        <div className='flex flex-col items-center'>
-          <h1>MON</h1>
-          <img src={M4} alt="mon" className='w-[20px] h-[20px] mb-1' />
-        </div>
-        <div className='flex flex-col items-center'>
-          <h1>TUES</h1>
-          <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1 opacity-100' />
-        </div>
+         {
+              print_day.map((day) => {
+                return (
+                  <div className='flex flex-col items-center gap-1'>
+                    <h1>{weekday[day]}</h1>
+                    <img src={M5} alt="m5" className='w-[20px] h-[19px]' />
+                  </div>
+                )
+              })
+            }
+
          <img src={ArrowR} alt="ArrowR" className="cursor-pointer w-[20px] h-[24px]" onClick={rightClick} />
       </div>
       
