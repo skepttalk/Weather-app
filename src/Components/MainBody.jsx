@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from './menu'
+import Menu from './Menu'
 import Activity from './Activity'
 import Information from './Information'
 import Chart from './Chart'
