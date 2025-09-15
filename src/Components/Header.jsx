@@ -3,6 +3,7 @@ import cloud from "../assets/images/cloud.png"
 import marker from "../assets/images/marker.png"
 import sign from "../assets/images/sign.png"
 
+
 const Header = ({data}) => {
   const dateObj = new Date(data.Time);
  const options = { weekday: "long", day: "numeric", month: "short", year: "numeric", };

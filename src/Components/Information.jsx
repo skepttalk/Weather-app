@@ -8,34 +8,60 @@ import TM from "../assets/images/TM.png"
 import Wind from "../assets/images/Wind.png"
 import Drop from "../assets/images/Drop.png"
 import UvI from "../assets/images/UvI.png"
+import Arrow from "../assets/images/Arrow-Left.png"
+import ArrowR from "../assets/images/Arrow-Right.png"
 
 
 const Information = ({data}) => {
-  console.log(data)
+console.log(data)
+
+
+let CurrentDay = 5;
+let Day_Arr = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+let print_Day_Arr = [];
+
+for (let i = -2; i <= 2; i++) {
+  let CurrentDayToday = CurrentDay + i;
+  let Day_Arr_length = Day_Arr.length;
+  let day = 0;
+
+  if (CurrentDayToday < 0) {
+    day = Day_Arr_length + CurrentDayToday;
+  } else {
+    day = CurrentDayToday % Day_Arr_length;
+  }
+
+  print_Day_Arr.unshift(Day_Arr[day]); 
+}
+console.log(print_Day_Arr);
   return (
     <div className='bg-[#DEAB4D] h-[500px] w-[300px] rounded-[40px] p-6'>
       <div className='flex flex-row justify-between text-[12px] font-inter font-medium text-[#FFFFFF] mb-4'>
+        <img src={Arrow } alt="Arrow" className="cursor-pointer"  />
+        
         <div className='flex flex-col items-center'>
+            <h1>FRI </h1>
           <img src={CloudIcon} alt="fri" className='w-[20px] h-[20px] mb-1  opacity-100' />
-          <h1>FRI</h1>
         </div>
         <div className='flex flex-col items-center'>
-          <img src={SunIcon} alt="sat" className='w-[20px] h-[20px] mb-1' />
           <h1>SAT</h1>
+          <img src={SunIcon} alt="sat" className='w-[20px] h-[20px] mb-1' />
         </div>
         <div className='flex flex-col items-center font-bold'>
-          <img src={M3} alt="sun" className='w-[25px] h-[23px] mb-1' />
           <h1>SUN</h1>
+          <img src={M3} alt="sun" className='w-[25px] h-[23px] mb-1' />
         </div>
         <div className='flex flex-col items-center'>
-          <img src={M4} alt="mon" className='w-[20px] h-[20px] mb-1' />
           <h1>MON</h1>
+          <img src={M4} alt="mon" className='w-[20px] h-[20px] mb-1' />
         </div>
         <div className='flex flex-col items-center'>
-          <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1 opacity-100' />
           <h1>TUES</h1>
+          <img src={M5} alt="tues" className='w-[20px] h-[20px] mb-1 opacity-100' />
         </div>
+         <img src={ArrowR} alt="ArrowR" />
       </div>
+      
 
       <div className='text-center font-inter font-medium text-[17px] text-[#FFFFFF] mb-6'>
         <h1>8:00PM GMT</h1>

@@ -4,7 +4,7 @@ import MainBody from '../Components/MainBody'
 
 const MainPage = () => {
 
-  const AccessKey = import.meta.env.WEATHER_API_KEY
+  const AccessKey = import.meta.env.VITE_WEATHER_API_KEY
   console.log(AccessKey,"AccessKey")
 
 
@@ -13,9 +13,9 @@ const[MainBodyData,setMainBodyData] = useState({})
 const [WeatherData,setWeatherData] = useState({})
 
 useEffect(()=>{
-  fetch(`http://api.weatherstack.com/current?access_key=${AccessKey}9&query=india, Rajasthan, Udaipur`)
+  fetch( `https://api.weatherstack.com/current?access_key=${AccessKey}&query=india,Rajasthan,Udaipur`)
     .then((res) => res.json())
-    .then((data) => {
+    .then((data) => { 
       setWeatherData(data);
       localStorage.setItem('weatherData', JSON.stringify(data)); 
     })
@@ -31,8 +31,8 @@ useEffect(()=>{
 },[]);
   return (
     <>
-        <Header data={headerData}/>
-        <MainBody key="main-body" data={MainBodyData} />
+     <Header data={headerData}/>
+      <MainBody key="main-body" data={MainBodyData} />
     </>
   )
 }                                                                           
