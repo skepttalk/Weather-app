@@ -24,12 +24,13 @@ const Information = ({ data, day }) => {
 
   useEffect(() => {
 
+
     console.log(currentDay, "current");
     console.log(weekday[currentDay]);
 
     calculateWeekDay(currentDay);
 
-  }, [print_day, currentDay]);
+  }, []);
 
   function calculateWeekDay(currentDay) {
     let print_day_duplicate = [];
@@ -39,7 +40,7 @@ const Information = ({ data, day }) => {
         print_day_duplicate.push(weekday.length + currentday_i);
       } else {
         print_day_duplicate.push(currentday_i % weekday.length);
-
+        // currentDay=currentday+1%weekday.length
       }
 
     }
@@ -70,7 +71,7 @@ const Information = ({ data, day }) => {
         <img src={Arrow } alt="Arrow" className="cursor-pointer w-[20px] h-[24px]" onClick={leftClick} />
         
          {
-              print_day.map((day) => {
+              print_day.map((day, index) => {
                 return (
                   <div className='flex flex-col items-center gap-1'>
                     <h1>{weekday[day]}</h1>
