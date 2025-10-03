@@ -16,6 +16,7 @@ function App() {
     <Layout>
          <MainPage />
    </Layout>
+   
      </div>
     
   )

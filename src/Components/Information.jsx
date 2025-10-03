@@ -19,6 +19,9 @@ const d1 = new Date();
 
 
 const Information = ({ data, day }) => {
+
+
+
   const [print_day, setPrint_day] = useState([]);
   const [currentDay, setCurrentDay] = useState(d1.getDay());
 
@@ -86,7 +89,7 @@ const Information = ({ data, day }) => {
       
 
       <div className='text-center font-inter font-medium text-[17px] text-[#FFFFFF] mb-6'>
-        <h1>8:00PM GMT</h1>
+        <h1>{Times}</h1>
       </div>
 
       <h1 className='font-inter font-bold text-[14px] text-[#FFFFFF] mb-6'>
