@@ -13,7 +13,7 @@ const[MainBodyData,setMainBodyData] = useState({})
 const [WeatherData,setWeatherData] = useState({})
 
 useEffect(()=>{
-  fetch( `https://api.weatherstack.com/current?access_key=${AccessKey}&query=india,Rajasthan,Udaipur`)
+  fetch( "https://api.weatherstack.com/current?access_key=e88f12b27280083fa7b60d55d51864a7&query=india,Rajasthan,Udaipur")
     .then((res) => res.json())
     .then((data) => { 
       setWeatherData(data);
@@ -38,3 +38,7 @@ useEffect(()=>{
 }                                                                           
 
 export default MainPage
+
+
+
+

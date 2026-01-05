@@ -89,8 +89,10 @@ const Information = ({ data, day }) => {
       
 
       <div className='text-center font-inter font-medium text-[17px] text-[#FFFFFF] mb-6'>
-        <h1>{Times}</h1>
+        <h1>Time</h1>
       </div>
+
+      
 
       <h1 className='font-inter font-bold text-[14px] text-[#FFFFFF] mb-6'>
         AIR CONDITIONS
